@@ -79,7 +79,7 @@
 
           # #4
           # it "imports the 1st entry" do
-          it "repsonds to entries" do
+          it "imports the 1st entry" do
             expect(book).to respond_to(:entries)
             book.import_from_csv("entries.csv")
             # Check the first entry
@@ -115,4 +115,38 @@
             check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
           end
         end
+
+        # Assignment 6:  testing on a different CSV file
+          describe "#import_from_csv" do
+            it "imports the correct number of entries" do
+              book.import_from_csv("entries_2.csv")
+              book_size = book.entries.size
+
+              # Check the size of the entries in AddressBook
+              expect(book_size).to eq 3
+            end
+
+             it "imports the first entry" do
+               expect(book).to respond_to(:entries)
+               book.import_from_csv("entries_2.csv")
+               # Check the first entry
+               entry_one = book.entries[0]
+               check_entry(entry_one, "Alejandro", "415-555-1234", "al@mail.com")
+             end
+
+             it "imports the 2nd entry" do
+               book.import_from_csv("entries_2.csv")
+               # Check the second entry
+               entry_two = book.entries[1]
+               check_entry(entry_two, "Brodius", "202-555-1212", "brodius@aol.com")
+             end
+
+             it "imports the 3rd entry" do
+               book.import_from_csv("entries_2.csv")
+               # Check the third entry
+               entry_three = book.entries[2]
+               check_entry(entry_three, "Chaz", "302-555-0101", "chaz@yahoo.com")
+             end
+           end
+
    end
