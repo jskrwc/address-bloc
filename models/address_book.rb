@@ -29,11 +29,11 @@ class AddressBook
 
     @entries.each do |entry|
       if entry.name == name && entry.phone_number == phone_number && entry.email == email
-        entry_to_remove = entry
+        @entries.delete(entry)
+        break # there is no need to loop further
       end
     end
 
-    @entries.delete(entry_to_remove)
   end
 
   # Checkpoint 6
