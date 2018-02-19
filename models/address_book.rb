@@ -69,4 +69,31 @@ class AddressBook
 
     return nil
   end
+
+  # Assignment 7   iterative search for specific entry by name
+
+  def iterative_search(name)
+    @entries.each do |entry|
+      if entry.name == name
+        return entry
+      end
+    end
+
+    return nil
+  end
+
+  # My first attempt -- works, but less elegant than above bloc solution
+  # def iterative_search(name)
+  #   n = 0
+  #   while n < entries.length do
+  #     if name == entries[n].name
+  #       return entries[n]
+  #     end
+  #     n += 1
+  #   end
+  #
+  #   return nil
+  # end
+
+
 end
